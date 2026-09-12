@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotus Developments | شركة اللوتس للبناء والتشييد</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #081226;
+            --bg-gradient: radial-gradient(circle at 50% 0%, #11254A 0%, #050B17 100%);
+            --glass-card: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --glass-border-hover: rgba(56, 189, 248, 0.6);
+            --accent-blue: #38BDF8;
+            --accent-glow: rgba(56, 189, 248, 0.35);
+            --white-pure: #FFFFFF;
+            --text-primary: #FFFFFF;
+            --text-secondary: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background: var(--bg-deep);
+            background-image: var(--bg-gradient);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .glass {
+            background: var(--glass-card);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 30px;
+            background: rgba(8, 18, 38, 0.85);
+        }
+
+        .brand-logo-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #FFFFFF;
+            padding: 6px 14px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            text-decoration: none;
+        }
+
+        .brand-logo-card:hover {
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.4);
+        }
+
+        .brand-logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            mix-blend-mode: multiply;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white-pure);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+            text-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        .lang-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .lang-select {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1.5px solid var(--glass-border);
+            color: var(--white-pure);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            padding-right: 32px;
+        }
+
+        [dir="ltr"] .lang-select {
+            padding-right: 16px;
+            padding-left: 32px;
+        }
+
+        .lang-select option {
+            background: #081226;
+            color: #FFFFFF;
+        }
+
+        .lang-dropdown::after {
+            content: '▾';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 12px;
+            color: var(--accent-blue);
+            pointer-events: none;
+        }
+
+        [dir="ltr"] .lang-dropdown::after {
+            left: auto;
+            right: 12px;
+        }
+
+        .hero {
+            padding: 230px 20px 120px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.6rem;
+            font-weight: 900;
+            color: var(--white-pure);
+            margin-bottom: 25px;
+            line-height: 1.25;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: var(--text-secondary);
+            max-width: 850px;
+            margin: 0 auto 45px;
+        }
+
+        .btn-glass {
+            background: var(--white-pure);
+            color: #081226;
+            padding: 16px 48px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25);
+            display: inline-block;
+        }
+
+        .btn-glass:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 15px 40px var(--accent-glow);
+            background: var(--accent-blue);
+            color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white-pure);
+            margin-bottom: 50px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card { padding: 40px; }
+        .card:hover {
+            border-color: var(--glass-border-hover);
+            transform: translateY(-5px);
+        }
+        .card h3 { color: var(--accent-blue); margin-bottom: 18px; font-size: 1.55rem; }
+
+        .project-card-text {
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card-text h3 { 
+            color: var(--white-pure); 
+            margin-bottom: 20px; 
+            font-size: 1.5rem; 
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 12px;
+        }
+
+        .project-card-text ul { list-style: none; }
+        .project-card-text ul li { 
+            margin-bottom: 14px; 
+            display: flex; 
+            align-items: center;
+            gap: 12px; 
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .project-card-text ul li i {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 34px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 10000;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 70px 20px 30px;
+            background: rgba(5, 11, 23, 0.95);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 { color: var(--accent-blue); margin-bottom: 22px; font-size: 1.3rem; }
+        .footer-col p, .footer-col a { color: var(--text-secondary); text-decoration: none; margin-bottom: 10px; display: block; }
+        .email-link { color: var(--accent-blue) !important; font-weight: bold; }
+
+        .copyright { text-align: center; color: var(--text-secondary); font-size: 0.95rem; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.08); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.4rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/201152308888" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <header>
+        <div class="nav-container glass">
+            <a href="#" class="brand-logo-card">
+                <img src="https://i.ibb.co/VvzK2mY/lotus-logo.jpg" alt="Lotus Logo" class="brand-logo-img">
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about" data-ar="عن الشركة" data-en="About Us" data-fr="À Propos">عن الشركة</a></li>
+                <li><a href="#projects" data-ar="مشاريعنا" data-en="Projects" data-fr="Nos Projets">مشاريعنا</a></li>
+                <li><a href="#contact" data-ar="تواصل معنا" data-en="Contact" data-fr="Contactez-nous">تواصل معنا</a></li>
+            </ul>
+            
+            <div class="lang-dropdown">
+                <select class="lang-select" onchange="changeLanguage(this.value)">
+                    <option value="ar">🇪🇬 العربية</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="fr">🇫🇷 Français</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1 data-aos="fade-up" 
+            data-ar="شركة اللوتس للبناء والتشييد والتجارة الدولية" 
+            data-en="Lotus Construction & International Trade" 
+            data-fr="Lotus Construction & Commerce International">شركة اللوتس للبناء والتشييد والتجارة الدولية</h1>
+        
+        <p data-aos="fade-up" data-aos-delay="200" 
+           data-ar="رائدة في مجال الاستثمار والتطوير العقاري والتسويق منذ عام 1987" 
+           data-en="Pioneers in Real Estate Investment, Development & Marketing Since 1987" 
+           data-fr="Pionniers de l'Investissement, du Développement et du Marketing Immobilier depuis 1987">رائدة في مجال الاستثمار والتطوير العقاري والتسويق منذ عام 1987</p>
+        
+        <a href="#projects" class="btn-glass" data-aos="zoom-in" data-aos-delay="400" 
+           data-ar="استكشف مشاريعنا" 
+           data-en="Explore Projects" 
+           data-fr="Explorer nos projets">استكشف مشاريعنا</a>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title" data-aos="fade-up" data-ar="نبذة عن الشركة" data-en="About Company" data-fr="À Propos de l'Entreprise">نبذة عن الشركة</h2>
+        <div class="grid-3">
+            <div class="card glass" data-aos="fade-up" data-aos-delay="100">
+                <h3 data-ar="خبرة وثقة" data-en="Trust & Legacy" data-fr="Expérience & Confiance">خبرة وثقة</h3>
+                <p data-ar="تأسست الشركة عام 1987 برئاسة السيد / عبد الحليم أحمد عبد الحليم عبداللطيف، وتمتلك سابقة أعمال عريضة في التطوير العقاري بالإسكندرية والساحل الشمالي." 
+                   data-en="Founded in 1987 led by Mr. Abdel Halim Ahmed, with an expansive history of premium real estate development across Alexandria and the North Coast." 
+                   data-fr="Fondée en 1987 par M. Abdel Halim Ahmed, avec un solide historique de développement immobilier haut de gamme à Alexandrie et sur la Côte Nord.">تأسست الشركة عام 1987 برئاسة السيد / عبد الحليم أحمد عبد الحليم عبداللطيف، وتمتلك سابقة أعمال عريضة في التطوير العقاري بالإسكندرية والساحل الشمالي.</p>
+            </div>
+            <div class="card glass" data-aos="fade-up" data-aos-delay="200">
+                <h3 data-ar="تشطيبات فاخرة" data-en="Luxury Finishes" data-fr="Finitions de Luxe">تشطيبات فاخرة</h3>
+                <p data-ar="متخصصون في التقنيات الحديثة والديكورات الفاخرة بأجود الخامات مع تقديم شهادات ضمان تتجاوز 10 سنوات." 
+                   data-en="Specialized in modern tech & ultra-luxury finishes using top materials, supported with 10+ year warranty certificates." 
+                   data-fr="Spécialisé dans les technologies modernes et la décoration de luxe utilisant les meilleurs matériaux, avec des garanties de plus de 10 ans.">متخصصون في التقنيات الحديثة والديكورات الفاخرة بأجود الخامات مع تقديم شهادات ضمان تتجاوز 10 سنوات.</p>
+            </div>
+            <div class="card glass" data-aos="fade-up" data-aos-delay="300">
+                <h3 data-ar="إتقان وتنفيذ" data-en="Excellence" data-fr="Excellence & Exécution">إتقان وتنفيذ</h3>
+                <p data-ar="نعتمد على صرح من المهندسين والعمالة الفنية على أعلى مستوى من الكفاءة والتنفيذ العالي." 
+                   data-en="Driven by an elite team of engineers and craftspeople dedicated to precision and high-grade execution." 
+                   data-fr="Soutenu par une équipe d'ingénieurs et d'artisans d'élite dévoués à la précision et à l'exécution de haut niveau.">نعتمد على صرح من المهندسين والعمالة الفنية على أعلى مستوى من الكفاءة والتنفيذ العالي.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title" data-aos="fade-up" data-ar="أبرز المشاريع" data-en="Featured Projects" data-fr="Projets En Vedette">أبرز المشاريع</h2>
+        <div class="grid-3">
+            
+            <div class="project-card-text glass" data-aos="fade-up">
+                <h3 data-ar="مرسى باغوش - سيدي حنيش" data-en="Marsa Baghoush - Sidi Heneish" data-fr="Marsa Baghoush - Sidi Heneish">مرسى باغوش - سيدي حنيش</h3>
+                <ul>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="500 فدان بالساحل الشمالي" data-en="500 Acres in North Coast" data-fr="500 Acres sur la Côte Nord">500 فدان بالساحل الشمالي</span></li>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="فيلات وشاليهات فاخرة" data-en="Luxury Villas & Chalets" data-fr="Villas & Chalets de Luxe">فيلات وشاليهات فاخرة</span></li>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="أعمال خرسانات وتشطيبات كاملة" data-en="Full Concrete & Finishing Work" data-fr="Travaux de béton et finitions">أعمال خرسانات وتشطيبات كاملة</span></li>
+                </ul>
+            </div>
+
+            <div class="project-card-text glass" data-aos="fade-up" data-aos-delay="150">
+                <h3 data-ar="قصر ثروت - Tharwat Palace" data-en="Tharwat Palace" data-fr="Palais Tharwat">قصر ثروت - Tharwat Palace</h3>
+                <ul>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="اختيار الصفوة بنطاق حي شرق" data-en="Elite Choice in East District" data-fr="Le Choix de l'Élite">اختيار الصفوة بنطاق حي شرق</span></li>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="شقق ودوبلكسات فاخرة" data-en="Luxury Apartments & Duplexes" data-fr="Appartements & Duplex de Luxe">شقق ودوبلكسات فاخرة</span></li>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="مسطح 740 متر مربع" data-en="740 sqm Surface Area" data-fr="Surface de 740 m²">مسطح 740 متر مربع</span></li>
+                </ul>
+            </div>
+
+            <div class="project-card-text glass" data-aos="fade-up" data-aos-delay="300">
+                <h3 data-ar="برج اللوتس الفاخر - جليم" data-en="Lotus Tower - Gleem" data-fr="Tour Lotus - Gleem">برج اللوتس الفاخر - جليم</h3>
+                <ul>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="إطلالة ساحرة على البحر مباشرة" data-en="Direct Sea View" data-fr="Vue Directe sur la Mer">إطلالة ساحرة على البحر مباشرة</span></li>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="وحدات سكنية وتجارية فاخرة" data-en="Residential & Commercial Units" data-fr="Unités Résidentielles & Commerciales">وحدات سكنية وتجارية فاخرة</span></li>
+                    <li><i class="fa-solid fa-gem"></i> <span data-ar="أحدث نظم الأمان والخدمات" data-en="Modern Security & Services" data-fr="Systèmes de Sécurité Modernes">أحدث نظم الأمان والخدمات</span></li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4 data-ar="شركة اللوتس" data-en="Lotus Developments" data-fr="Lotus Développements">شركة اللوتس</h4>
+                <p data-ar="للبناء والتشييد والتجارة الدولية" data-en="Construction & International Trade" data-fr="Construction & Commerce International">للبناء والتشييد والتجارة الدولية</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-ar="العنوان الرئيسي" data-en="Main Office" data-fr="Siège Principal">العنوان الرئيسي</h4>
+                <p data-ar="5 شارع إبراهيم الحلبي، سابا باشا، عمارة قصر اللوتس - جليم - الإسكندرية." 
+                   data-en="5 Ibrahim Al-Halaby St, Saba Pasha, Lotus Palace Tower, Gleem, Alexandria." 
+                   data-fr="5, rue Ibrahim Al-Halaby, Saba Pasha, Tour du Palais Lotus, Gleem, Alexandrie.">5 شارع إبراهيم الحلبي، سابا باشا، عمارة قصر اللوتس - جليم - الإسكندرية.</p>
+            </div>
+            <div class="footer-col">
+                <h4 data-ar="التواصل والبريد الإلكتروني" data-en="Contact & Email" data-fr="Contact & E-mail">التواصل والبريد الإلكتروني</h4>
+                <p>📱 01227646300</p>
+                <p>📱 01152308888</p>
+                <a href="mailto:Lotus.realstate.company@gmail.com" class="email-link">✉️ Lotus.realstate.company@gmail.com</a>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 Lotus Real Estate Developments. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        function changeLanguage(lang) {
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-ar]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if(text) {
+                    el.innerText = text;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
